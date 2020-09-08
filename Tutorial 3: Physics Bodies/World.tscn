@@ -1,0 +1,41 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://FloorScene.tscn" type="PackedScene" id=1]
+[ext_resource path="res://FallingBar.tscn" type="PackedScene" id=2]
+[ext_resource path="res://bodies/StaticBody.tscn" type="PackedScene" id=3]
+[ext_resource path="res://bodies/Area.tscn" type="PackedScene" id=4]
+[ext_resource path="res://bodies/KinematicBody.tscn" type="PackedScene" id=5]
+[ext_resource path="res://bodies/RigidBody.tscn" type="PackedScene" id=6]
+
+[node name="World" type="Node2D"]
+
+[node name="Floor" type="Node2D" parent="."]
+
+[node name="Floor1" parent="Floor" instance=ExtResource( 1 )]
+position = Vector2( 525.361, 504.179 )
+
+[node name="Floor2" parent="Floor" instance=ExtResource( 1 )]
+position = Vector2( 913.987, 576.566 )
+rotation = 1.5708
+
+[node name="Floor3" parent="Floor" instance=ExtResource( 1 )]
+position = Vector2( 38.2015, 642.595 )
+rotation = 1.5708
+
+[node name="FallingBar" parent="." instance=ExtResource( 2 )]
+position = Vector2( 466.155, 172.432 )
+rotation = 1.5708
+
+[node name="bodies" type="Node2D" parent="."]
+
+[node name="StaticBody" parent="bodies" instance=ExtResource( 3 )]
+position = Vector2( 239.359, 418.954 )
+
+[node name="RigidBody" parent="bodies" instance=ExtResource( 6 )]
+position = Vector2( 459.637, 460.659 )
+
+[node name="KinematicBody" parent="bodies" instance=ExtResource( 5 )]
+position = Vector2( 725.249, 135.846 )
+
+[node name="Area2D" parent="bodies" instance=ExtResource( 4 )]
+position = Vector2( 592.691, 220.202 )

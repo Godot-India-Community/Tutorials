@@ -1,0 +1,13 @@
+[gd_scene format=2]
+
+[node name="Label" type="Label"]
+modulate = Color( 0, 0, 0, 1 )
+margin_left = -7.94484
+margin_top = -15.1511
+margin_right = -0.944839
+margin_bottom = -1.15112
+rect_scale = Vector2( 2.5, 2.5 )
+text = "S"
+__meta__ = {
+"_edit_use_anchors_": false
+}
