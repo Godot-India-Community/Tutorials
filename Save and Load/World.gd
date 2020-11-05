@@ -5,7 +5,7 @@ extends Control
 # var a = 2
 # var b = "text"
 var pause_state = true
-var survived_time = 0.5
+var survived_time = 1
 var screen_size
 var powerup 
 var powerups = ["Magazine", "Chakra"]
@@ -37,7 +37,7 @@ func _process(delta):
 
 
 func _on_PauseTimer_timeout():
-	survived_time += .5
+	survived_time += 1
 	pause_state = !pause_state
 	# get_tree().paused = pause_state
 		
