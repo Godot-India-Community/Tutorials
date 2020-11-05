@@ -45,9 +45,8 @@ func reload():
 func die():
 	hide()
 	$CollisionShape2D.disabled = true
-	if p.survived_time > g.save_dict["high_score"]:
-		g.save_dict["high_score"] = p.survived_time
-		g.save_data()
+	if p.survived_time > g.save_dict.high_score:
+		g.save_dict.high_score = p.survived_time
 	
 	p.get_node("HUD/GameOver/V/MaxScoreLabel").text = "Your Score was: " + str(p.survived_time)
 	p.get_node("HUD/GameOver/V/HighScoreLabel").text = "High Score is: " + str(g.save_dict["high_score"])
