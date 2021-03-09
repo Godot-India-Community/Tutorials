@@ -4,11 +4,13 @@ onready var back = $back
 onready var front = $front
 
 export var ease_value = 0.25
-export var joystick_range = 200
+export var joystick_range = 75
 
 var screensize = Vector2.ZERO
 var range_arr 
 var mouse_pos 
+
+var mouse_in = false
 
 func _ready():
 	screensize = get_viewport_rect().size
@@ -17,7 +19,7 @@ func _ready():
 func front_relative():
 	mouse_pos = get_global_mouse_position()
 	
-	if Input.is_mouse_button_pressed(1):
+	if Input.is_mouse_button_pressed(1) and mouse_in:
 		front.global_position = lerp(front.global_position, mouse_pos, ease_value)
 		front.global_position.x = clamp(front.global_position.x, range_arr[0], range_arr[1])
 		front.global_position.y = clamp(front.global_position.y, range_arr[2], range_arr[3])
@@ -41,3 +43,11 @@ func find_range():
 	]
 	return range_arr
 
+
+
+func _on_TouchArea_mouse_entered():
+	mouse_in = true
+
+
+func _on_TouchArea_mouse_exited():
+	mouse_in = false
